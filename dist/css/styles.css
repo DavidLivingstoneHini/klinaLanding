@@ -2843,11 +2843,11 @@ textarea.form-control-lg {
 
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #171645;
-  --bs-btn-border-color: #f2055c;
+  --bs-btn-bg: #2937f0;
+  --bs-btn-border-color: #2937f0;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #f2055c;
-  --bs-btn-hover-border-color: #171645;
+  --bs-btn-hover-bg: #232fcc;
+  --bs-btn-hover-border-color: #212cc0;
   --bs-btn-focus-shadow-rgb: 73, 85, 242;
   --bs-btn-active-color: #fff;
   --bs-btn-active-bg: #212cc0;
@@ -10978,10 +10978,10 @@ section.cta:before {
   display: none;
 }
 .features-device-mockup .circle .gradient-start-color {
-  stop-color: #2937f0;
+  stop-color: #f2055c;
 }
 .features-device-mockup .circle .gradient-end-color {
-  stop-color: #9f1ae2;
+  stop-color: #171645;
 }
 .features-device-mockup .shape-1 {
   position: absolute;
@@ -11090,10 +11090,10 @@ footer a:hover, footer a:active, footer a:focus {
   display: none;
 }
 .masthead .masthead-device-mockup .circle .gradient-start-color {
-  stop-color: #2937f0;
+  stop-color: #f2055c;
 }
 .masthead .masthead-device-mockup .circle .gradient-end-color {
-  stop-color: #9f1ae2;
+  stop-color: #171645;
 }
 .masthead .masthead-device-mockup .shape-1 {
   position: absolute;
