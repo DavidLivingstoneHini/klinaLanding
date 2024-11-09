@@ -1,0 +1,73 @@
+// Feedback Modal
+#feedbackModal.modal.fade(tabindex='-1', aria-labelledby='feedbackModalLabel', aria-hidden='true')
+    .modal-dialog.modal-dialog-centered
+        .modal-content
+            .modal-header.bg-gradient-primary-to-secondary.p-4
+                h5#feedbackModalLabel.modal-title.font-alt.text-white Send feedback
+                button.btn-close.btn-close-white(type='button', data-bs-dismiss='modal', aria-label='Close')
+            .modal-body.border-0.p-4
+                form#contactForm(action='YOUR_BACKEND_ENDPOINT', method='POST')
+                    // Name input
+                    .form-floating.mb-3
+                        input#name.form-control(type='text', placeholder='Enter your name...', required)
+                        label(for='name') Full name
+                        .invalid-feedback
+                            | A name is required.
+                    
+                    // Email address input
+                    .form-floating.mb-3
+                        input#email.form-control(type='email', placeholder='name@example.com', required)
+                        label(for='email') Email address
+                        .invalid-feedback
+                            | An email is required.
+                        .invalid-feedback
+                            | Email is not valid.
+                    
+                    // Phone number input
+                    .form-floating.mb-3
+                        input#phone.form-control(type='tel', placeholder='(123) 456-7890', required)
+                        label(for='phone') Phone number
+                        .invalid-feedback
+                            | A phone number is required.
+                    
+                    // Message input
+                    .form-floating.mb-3
+                        textarea#message.form-control(placeholder='Enter your message here...', style='height: 10rem;', required)
+                        label(for='message') Message
+                        .invalid-feedback
+                            | A message is required.
+
+                    // Submit success message
+                    #submitSuccessMessage.d-none
+                        .text-center.mb-3
+                            .fw-bolder Form submission successful!
+                            | Thank you for your feedback!
+
+                    // Submit error message
+                    #submitErrorMessage.d-none
+                        .text-center.mb-3
+                            .fw-bolder Error submitting form!
+                            | Please try again later.
+
+                    button.btn.btn-primary(type='submit') Submit
+
+                script.
+                    document.getElementById('contactForm').addEventListener('submit', function(event) {
+                        event.preventDefault();
+                        const formData = new FormData(this);
+                        fetch('YOUR_BACKEND_ENDPOINT', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                document.getElementById('submitSuccessMessage').classList.remove('d-none');
+                            } else {
+                                document.getElementById('submitErrorMessage').classList.remove('d-none');
+                            }
+                        })
+                        .catch(error => {
+                            document.getElementById('submitErrorMessage').classList.remove('d-none');
+                        });
+                    });
